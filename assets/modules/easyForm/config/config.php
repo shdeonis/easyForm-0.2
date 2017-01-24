@@ -3,22 +3,25 @@ if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 
 //список доступных форм
 $formListTpl='
+	<div class="table-responsive">
 	<table class="grid" cellpadding="1" cellspacing="1">
 		<thead>	
 			<tr>
-				<td>id</td>
-				<td>Имя</td>
-				<td>Описание</td>
-				<td>Email</td>
-				<td>Поля</td>
-				<td>Изменить</td>
-				<td>Удалить</td>
+				<td class="gridHeader">id</td>
+				<td class="gridHeader">Имя</td>
+				<td class="gridHeader">Описание</td>
+				<td class="gridHeader">Email</td>
+				<td class="gridHeader">Поля</td>
+				<td class="gridHeader">Изменить</td>
+				<td class="gridHeader">Удалить</td>
+				<td class="gridHeader text-right">Действие</td>
 			</tr>
 		</thead>
 		<tbody>
 			[+formRows+]
 		</tbody>
 	</table>
+	</div>
 	<br><br>
 	<!--форма для создания новой формы-->
 	<form action="" method="post" class="actionButtons"> 
@@ -33,13 +36,18 @@ $formListTpl='
 //строка формы в таблице списка форм
 $formRowTpl='
 	<tr>
-		<td>[+id+]</td>
-		<td>[+name+]</td>
-		<td>[+title+]</td>
-		<td>[+email+]</td>
+		<td class="gridItem">[+id+]</td>
+		<td class="gridItem">[+name+]</td>
+		<td class="gridItem">[+title+]</td>
+		<td class="gridItem">[+email+]</td>
 		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=pole" class="button choice"> <img src="[+iconfolder+]page_white_copy.png" alt=""> Список полей</a></td>
 		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=edit" class="button edit"> <img alt="" src="[+iconfolder+]page_white_magnify.png" > Изменить</a></td>
 		<td class="actionButtons"><a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> удалить</a></td>
+		<td class="gridItem">
+		<a class="btn btn-xs btn-info" title="Просмотр" href="[+moduleurl+]&fid=[+id+]&action=pole"><i class="fa fa-eye fa-fw"></i></a>
+		<a class="btn btn-xs btn-success" title="Редактировать" href="[+moduleurl+]&fid=[+id+]&action=edit"><i class="fa fa-edit fa-fw"></i></a>
+		<a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" class="btn btn-xs btn-danger" title="Удалить" href="index.php?a=6&amp;id=1"><i class="fa fa-trash fa-fw"></i></a>
+		</td>
 	</tr>
 ';
 
@@ -55,16 +63,17 @@ $formEditTpl='
 ';
 
 $fieldListTpl='
+	<div class="table-responsive">
 	<form id="sortpole" action="" method="post" class="actionButtons">
 		<table class="grid" cellpadding="1" cellspacing="1">
 			<thead>
 				<tr>
-					<td>Имя</td>
-					<td>Тип</td>
-					<td>Значение</td>
-					<td>Порядок</td>
-					<td>Изменить</td>
-					<td>Удалить</td>
+					<td class="gridHeader">Имя</td>
+					<td class="gridHeader">Тип</td>
+					<td class="gridHeader">Значение</td>
+					<td class="gridHeader">Порядок</td>
+					<td class="gridHeader">Изменить</td>
+					<td class="gridHeader">Удалить</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -74,6 +83,7 @@ $fieldListTpl='
 		<br>
 		<input type="submit" value="Сохранить порядок">
 	</form>
+	</div>
 	<br><br>
 	<h2>Добавление нового поля</h2>
 	<form action="" method="post" class="actionButtons">
