@@ -22,7 +22,14 @@ $output=<<<OUT
 	<link rel="stylesheet" type="text/css" href="media/style/{$eF->theme}/style.css" />
 </head>
 <body>
-	<h1>Управление формами</h1>
+	<h1 class="pagetitle">
+	  <span class="pagetitle-icon">
+	    <i class="fa fa-list-alt"></i>
+	  </span>
+	  <span class="pagetitle-text">
+	    Управление формами
+	  </span>
+	</h1>
 	<div class="sectionHeader">{$eF->zagol}</div>
 	<div class="sectionBody">
 		<div class="action_info">{$eF->info}</div>
