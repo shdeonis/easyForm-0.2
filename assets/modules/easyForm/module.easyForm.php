@@ -20,6 +20,8 @@ $output=<<<OUT
 <head>
 	<title>Управление формами</title>
 	<link rel="stylesheet" type="text/css" href="media/style/{$eF->theme}/style.css" />
+	<link rel="stylesheet" type="text/css" href="media/style/common/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="media/style/common/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
 	<h1 class="pagetitle">
