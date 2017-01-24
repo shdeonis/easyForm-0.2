@@ -3,7 +3,7 @@ if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 
 //список доступных форм
 $formListTpl='
-	<table class="fl">
+	<table class="grid" cellpadding="1" cellspacing="1">
 		<thead>	
 			<tr>
 				<td>id</td>
@@ -56,7 +56,7 @@ $formEditTpl='
 
 $fieldListTpl='
 	<form id="sortpole" action="" method="post" class="actionButtons">
-		<table class="fl">
+		<table class="grid" cellpadding="1" cellspacing="1">
 			<thead>
 				<tr>
 					<td>Имя</td>
