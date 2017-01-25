@@ -12,7 +12,7 @@ function showInfo(msg){
 $(document).on("submit","form.easyForm",function(event){
 	event.preventDefault();
 	var fd=$(this).serialize();
-	var url=furl+$(this).attr("action");
+	var url=$(this).attr("action");
 	var parent_id=$(this).parent("div").attr("id");
 	$.ajax({
 		url: url,                                   
@@ -49,10 +49,4 @@ $(document).on("keyup change","input.required,textarea.required,input.invalid,te
 	$(this).removeClass("required").removeClass("invalid");
 	$(this).parent().parent().removeClass("required");
 });
-
-
-
-
-
-
 })
