@@ -31,18 +31,20 @@ $output=<<<OUT
 	    Управление формами
 	  </span>
 	</h1>
-	<div class="sectionHeader">{$eF->zagol}</div>
-	<div class="sectionBody">
-		<div class="action_info">{$eF->info}</div>
-			
-		{$eF->eBlock}
+	<div class="section">
+		<div class="sectionHeader">{$eF->zagol}</div>
+		<div class="sectionBody">
+			<div class="action_info">{$eF->info}</div>
 				
-		<form action="" method="post" id="delform" name="delform"> 
-			<input type="hidden" name="delform1" value="">
-		</form>
-		<form action="" method="post" id="delpole" name="delpole"> 
-			<input type="hidden" name="delpole1" value="">
-		</form>
+			{$eF->eBlock}
+					
+			<form action="" method="post" id="delform" name="delform"> 
+				<input type="hidden" name="delform1" value="">
+			</form>
+			<form action="" method="post" id="delpole" name="delpole"> 
+				<input type="hidden" name="delpole1" value="">
+			</form>
+		</div>
 	</div>
 </body>
 </html>
