@@ -33,8 +33,8 @@ public function regClient(){
 	$this->modx->regClientCSS($this->base_url.'assets/snippets/easyForm/css/easyForm.css');
 	if(isset($this->params['ajaxMode'])&&$this->params['ajaxMode']!='0'){
 		$src=$this->base_url.'assets/snippets/easyForm/js/easyForm.js';
-		$this->modx->regClientStartupScript($src);
-		echo '<script type="text/javascript">var furl="'.$this->base_url.'";</script>';
+		$this->modx->regClientScript($src);
+		//echo '<script type="text/javascript">var furl="'.$this->base_url.'";</script>';
 	};
 }
 
@@ -91,7 +91,8 @@ public function makeTpl(){
 				$opts = explode("\n", $v['value']);
 				switch($v['type']){
 				  case 2:
-					$field="<textarea name='param".$k."' class='f_txtarea' eform='".$v['title'].":".$type.":".$req."'></textarea>";
+					$field="<textarea name='param".$k."' class='f_txtarea' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].$f_reg."'></textarea>";
+					$f_reg=($req==1?'*':'');
 					break;
 				
 				  case 5:
@@ -155,7 +156,8 @@ public function makeTpl(){
 					break;
 					
 				  default:
-					$field="<input type='text' name='param".$k."' value='' class='f_txt' eform='".$v['title'].":".$type.":".$req."'>";
+					$field="<input type='text' name='param".$k."' value='' class='f_txt' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].$f_reg."'>";
+					$f_reg=($req==1?'*':'');
 					break;
 				}
 	
@@ -229,7 +231,5 @@ public function Run(){
 		}
 	}
 }
-
-
 }//end class
 ?>
