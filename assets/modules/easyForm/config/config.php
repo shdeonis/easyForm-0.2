@@ -11,10 +11,7 @@ $formListTpl='
 				<td class="gridHeader">Имя</td>
 				<td class="gridHeader">Описание</td>
 				<td class="gridHeader">Email</td>
-				<td class="gridHeader">Поля</td>
-				<td class="gridHeader">Изменить</td>
-				<td class="gridHeader">Удалить</td>
-				<td class="gridHeader text-right">Действие</td>
+				<td class="gridHeader" style="text-align:right;">Действие</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,31 +37,37 @@ $formRowTpl='
 		<td class="gridItem">[+name+]</td>
 		<td class="gridItem">[+title+]</td>
 		<td class="gridItem">[+email+]</td>
-		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=pole" class="button choice"> <img src="[+iconfolder+]page_white_copy.png" alt=""> Список полей</a></td>
-		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=edit" class="button edit"> <img alt="" src="[+iconfolder+]page_white_magnify.png" > Изменить</a></td>
-		<td class="actionButtons"><a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> удалить</a></td>
-		<td class="gridItem">
-		<a class="btn btn-xs btn-info" title="Просмотр" href="[+moduleurl+]&fid=[+id+]&action=pole"><i class="fa fa-eye fa-fw"></i></a>
-		<a class="btn btn-xs btn-success" title="Редактировать" href="[+moduleurl+]&fid=[+id+]&action=edit"><i class="fa fa-edit fa-fw"></i></a>
-		<a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" class="btn btn-xs btn-danger" title="Удалить" href="index.php?a=6&amp;id=1"><i class="fa fa-trash fa-fw"></i></a>
+		<td class="gridItem widget-stage" style="text-align:right;">
+		<a class="btn btn-sm" title="Просмотр" href="[+moduleurl+]&fid=[+id+]&action=pole"><i class="fa fa-list fa-fw"></i> Поля</a>
+		<a class="btn btn-sm" title="Редактировать" href="[+moduleurl+]&fid=[+id+]&action=edit"><i class="fa fa-edit fa-fw"></i> Редактировать</a>
+		<a class="btn btn-sm" title="Удалить" onclick="document.delform.delform1.value=[+id+];document.delform.submit();"><i class="fa fa-trash fa-fw"></i> Удалить</a>
 		</td>
 	</tr>
 ';
 
 $formEditTpl='
+	<div id="actions">
+        <ul class="actionButtons">
+            <li id="Button1"><a href="[+moduleurl+]">К списку форм</a></li>
+            </ul>
+    </div>
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="updateForm">
 		Название: <br><input type="text" value=\'[+name+]\' name="name" size="50"><br> 
 		Описание: <br><input type="text" value=\'[+title+]\' name="title" size="50"><br>
 		Email: <br><input type="text" value=\'[+email+]\' name="email" size="50"><br><br>
 		<input type="submit" value="Сохранить">
-	</form><br><br>
-	<a href="[+moduleurl+]">К списку форм</a>
+	</form>
 ';
 
 $fieldListTpl='
+	<div id="actions">
+        <ul class="actionButtons">
+            <li id="Button1"><a href="[+moduleurl+]">К списку форм</a></li>
+            </ul>
+    </div>
 	<div class="table-responsive">
-	<form id="sortpole" action="" method="post" class="actionButtons">
+	<form id="sortpole" action="" method="post" class="actionButtons1">
 		<table class="grid" cellpadding="1" cellspacing="1">
 			<thead>
 				<tr>
@@ -72,8 +75,7 @@ $fieldListTpl='
 					<td class="gridHeader">Тип</td>
 					<td class="gridHeader">Значение</td>
 					<td class="gridHeader">Порядок</td>
-					<td class="gridHeader">Изменить</td>
-					<td class="gridHeader">Удалить</td>
+					<td class="gridHeader" style="text-align:right;">Действие</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -97,20 +99,27 @@ $fieldListTpl='
 		Обязательно <input type="checkbox" name="require" value="1"><br><br>
 		<input type="submit" value="Добавить поле">
 	</form>
-	<br><br>
-	<a href="[+moduleurl+]">К списку форм</a>
 ';
 
 $fieldRowTpl='
 		<tr>
-			<td>[+title+] [+required+]</td><td> [+type+] </td><td> [+value+] </td>
-			<td><input type="text" name="sortpole[[+id+]]" value="[+sort+]" class="sort small"></td>
-			<td> <a href="[+moduleurl+]&fid=[+parent+]&pid=[+id+]&action=pole" class="button edit"><img alt="" src="[+iconfolder+]page_white_magnify.png" > Изменить</a> </td>
-			<td> <a onclick="document.delpole.delpole1.value=[+id+];document.delpole.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> Удалить</a> </td>
+			<td class="gridItem">[+title+] [+required+]</td>
+			<td class="gridItem"> [+type+] </td>
+			<td class="gridItem"> [+value+] </td>
+			<td class="gridItem"><input type="text" name="sortpole[[+id+]]" value="[+sort+]" class="sort small"></td>
+			<td class="gridItem widget-stage" style="text-align:right;"> 
+		<a class="btn btn-sm" title="Редактировать" href="[+moduleurl+]&fid=[+parent+]&pid=[+id+]&action=pole"><i class="fa fa-edit fa-fw"></i> Изменить</a>
+		<a class="btn btn-sm" title="Удалить" onclick="document.delpole.delpole1.value=[+id+];document.delpole.submit();"><i class="fa fa-trash fa-fw"></i> Удалить</a>
+			</td>
 		</tr>
 ';
 
 $fieldEditTpl='
+	<div id="actions">
+        <ul class="actionButtons">
+            <li id="Button1"><a href="[+moduleurl+]&fid=[+parent+]&action=pole">К списку полей</a></li>
+            </ul>
+    </div>
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="updateField">
 		Название: <br><input type="text" value=\'[+title+]\' name="title"><br> 
@@ -123,15 +132,5 @@ $fieldEditTpl='
 		Обязательно: <input type="checkbox" value="1" name="require" [+checked+]><br><br>
 		<input type="submit" value="Сохранить изменения">
 	</form>
-	<br><br>
-	<a href="[+moduleurl+]&fid=[+parent+]&action=pole">К списку полей</a>
 ';
-
-
-
-
-
-
-
-
 ?>
