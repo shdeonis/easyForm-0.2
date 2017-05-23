@@ -91,8 +91,8 @@ public function makeTpl(){
 				$opts = explode("\n", $v['value']);
 				switch($v['type']){
 				  case 2:
-					$field="<textarea name='param".$k."' class='f_txtarea' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].$f_reg."'></textarea>";
 					$f_reg=($req==1?'*':'');
+					$field="<textarea name='param".$k."' class='f_txtarea' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].' '.$f_reg."'></textarea>";
 					break;
 				
 				  case 5:
@@ -156,8 +156,8 @@ public function makeTpl(){
 					break;
 					
 				  default:
-					$field="<input type='text' name='param".$k."' value='' class='f_txt' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].$f_reg."'>";
 					$f_reg=($req==1?'*':'');
+					$field="<input type='text' name='param".$k."' value='' class='f_txt' eform='".$v['title'].":".$type.":".$req."' placeholder='".$v['value'].' '.$f_reg."'>";				
 					break;
 				}
 	
