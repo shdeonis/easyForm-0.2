@@ -19,6 +19,7 @@ public function __construct($modx, $params, $eid){
 	$this->forms_table=$this->modx->getFullTableName('forms');
 	$this->fields_table=$this->modx->getFullTableName('form_fields');
 	$this->base_url=MODX_BASE_URL;
+	$this->page=$modx->makeUrl($modx->documentIdentifier, '', '', 'full');
 }
 
 public function eParseTpl($arr1,$arr2,$output){
@@ -204,6 +205,7 @@ public function makeReportTpl(){
 			foreach($form as $k=>$v){
 				$f.='<tr><td style="padding-right:10px;"><b>'.$v['title'].':</b></td><td>[+param'.$k.'+]</td></tr>';
 			}
+			$f.='<tr><td style="padding-right:10px;"><b>Страница отправки:</b></td><td>'.$this->page.'</td></tr>';
 			$f.='</table>';
 		}
 	return $f;
